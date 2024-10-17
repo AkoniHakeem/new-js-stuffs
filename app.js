@@ -24,12 +24,15 @@ person = {
     skill3: 'JavaScript',
     logPerson: function () {
         console.log(`This is the person's firstname: ${this.firstname}`);
-    }
+    },
 }
+
+
+// person.logPerson();
 
 console.log(person);
 console.log(`This is the person's lastname: ${person.firstname}`);
-console.log(`The person's lastname teletele is: ${person.lastname}`);
+console.log(`The person's lastname teletele is: ${person['lastname']}`);
 person.lastname = 'Oyelami';
 person.favorite = 'Obe ila ati eran pupo pelu ede plus eba.';
 console.log(`The person's lastname is: ${person.lastname}`);
@@ -73,6 +76,7 @@ const personAttributesArray = Object.values(person);
 console.log(personAttributesArray);
 
 const arrayOfFood = ['rice', 'beans', 'yam', 'egusi', 'plantain'];
+console.log("this is the first food item: ", arrayOfFood[0]);
 for (const food of arrayOfFood) {
     console.log("the current food menu item is: ", food);
 }
@@ -85,10 +89,59 @@ for (const key of personAttributesArray2) {
     getObjeKeyValue(key);
 }
 
-// anonymous function
-// const func = function () {
-//     console.log('this is a function');
+console.log("typeof personAttributesArray2", typeof personAttributesArray2);
+// arrays are like objecs
+// const arrayLike = {
+//     0: 'firstname',
+//     1: 'lastname',
+//     2: 'age',
+//     3: 'isMarried',
+//     4: 'address',
+//     5: 'skill1',
+//     6: 'skill2',
+//     7: 'skill3',
+//     8: 'logPerson',
+//     length: 8,
+//     [Symbol.iterator]() {
+//         let index = 0;
+//         return {
+//             next: () => {
+//                 if (index < this.length) {
+//                     return {
+//                         value: this[index++],
+//                         done: false
+//                     }
+//                 }
+//                 return {
+//                     value: undefined,
+//                     done: true
+//                 }
+//             }
+//         }
+//     }
 // }
+
+// for (const key of arrayLike) {
+//     console.log('this is coming from array like: ', key);
+// }
+
+
+// array functions/method
+const foodArray2 = ['jollof-rice', 'beans and corn', 'yam', 'egusi', 'plantain'];
+// map as an array function/ method
+const arrowFunction = (input, index) => {
+    return `menu item ${index} ${input}`;
+}
+const foodArrayTransform = foodArray2.map(arrowFunction);
+console.log(foodArrayTransform);
+
+const foodArrayTransform2 = foodArray2.map((input, index) => {
+    return `menu item ${index} ${input}`;
+});
+console.log(foodArrayTransform2);
+
+// filter as an array function/ method
+
 
 
 
